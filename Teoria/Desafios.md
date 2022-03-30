@@ -193,7 +193,7 @@ notas_de_estudiantes=ingreso_notas()
 acumulador=0
 for n in notas_de_estudiantes.values():
     acumulador+=n
-promedio=acumulador/len(notas_de_estudiantes)
+promedio= 0 if len(notas_de_estudiantes)==0 else acumulador/len(notas_de_estudiantes)
 estudiantes_debajo_promedio = []
 for alumno in notas_de_estudiantes:
     if notas_de_estudiantes[alumno]<promedio:
