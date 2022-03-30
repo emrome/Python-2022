@@ -64,6 +64,31 @@ Calcular cuántos tienen notas menores al promedio
 * Deberíamos ingresar no sólo las notas, sino también los nombres de los estudiantes.
 ¿Qué soluciones proponen?
 
+## ```Desafio 12 ```[Resolución](#Desafio_12)
+**Queremos escribir una función que imprima sus argumentos agregando de qué tipo son**
+
+* Por ejemplo, podríamos invocarla de la siguiente manera:
+```
+imprimo(1) --> 1 es de tipo <class 'int'>
+imprimo(2, "hola") --> 2 es de tipo <class 'int'>, hola es de tipo <class 'str'>
+imprimo([1,2], "hola", 3.2) --> [1, 2] es de tipo <class 'list', hola es de tipo <class 'str'>
+```
+
+## ```Desafio 13 ```[Resolución](#Desafio_13)
+**Queremos implementar una función que dada una cadena de texto, retorne las palabras que contiene en orden alfabético.**
+
+## ```Desafio 14 ```[Resolución](#Desafio_14)
+**Queremos implementar una función que dada una colección con datos de usuarios de un determinado juego (por ejemplo nombre, nivel y puntaje), queremos retornar esta colección ordenada de acuerdo al nombre.**
+
+## ```Desafio 15 ```[Resolución](#Desafio_15)
+**Usando expresiones lambda escribir una función que permita codificar una frase según el siguiente algoritmo:**
+
+```
+encripto("a") --> "b"
+encripto("ABC") --> "BCD"
+encripto("Rock2021") --> "Spdl3132"
+```
+
 # Desafio_1
 ```Py
 num=int(input("Ingrese un numero: "))
@@ -205,3 +230,10 @@ for elem in estudiantes_debajo_promedio:
     print(elem+"\n")
 ```
 
+# Desafio_12
+
+# Desafio_13
+
+# Desafio_14
+
+# Desafio_15
