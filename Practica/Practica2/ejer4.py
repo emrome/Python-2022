@@ -10,28 +10,29 @@ experiences in developing ABM toolkits, including Repast for High Performance Co
 the Numba, NumPy, and PyTorch packages and the Python C-API to create a scalable modeling
 system that can exploit the largest HPC resources and emerging computing architectures.
 """
-categorias_oraciones={"faciles":0, "aceptables":0, "dificiles":0, "muy_dificiles":0}
+analisis={"titulo":"","faciles":0, "aceptables":0, "dificiles":0, "muy_dificiles":0}
 
 titulo=texto.split("resumen: ")[0]
 resumen=texto.split("resumen: ")[1]
 
 if len(titulo.split())<=11:
-    print("El tiutlo esta ok")
+    analisis["titulo"]="ok"
 else: 
-    print("El titulo NO esta ok")
+    analisis["titulo"]="no ok"
 
 
 oraciones=resumen.split(".")
 for oracion in oraciones:
     palabras=len(oracion.split())
-    if palabras<=12:
-        categorias_oraciones["faciles"]+=1
-    elif palabras<=17:
-        categorias_oraciones["aceptables"]+=1
-    elif palabras<=25:
-        categorias_oraciones["dificiles"]+=1
-    else :
-        categorias_oraciones["muy_dificiles"]+=1
+    match palabras:
+        case palabras if palabras<13:
+            analisis["faciles"]+=1
+        case palabras if 12<palabras<18:
+            analisis["aceptables"]+=1
+        case palabras if 17<palabras<26:
+            analisis["dificiles"]+=1
+        case palabras if palabras>25:
+            analisis["muy_dificiles"]+=1
 
-print("Oraciones: ")
-print(categorias_oraciones)
+print("ANALISIS: ")
+print(analisis)

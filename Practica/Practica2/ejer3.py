@@ -1,4 +1,5 @@
-import string
+from string import ascii_letters
+
 texto = """The constants defined in this module are:The constants defined in␣
 ,→this module are:
 string.ascii_letters
@@ -13,9 +14,10 @@ The uppercase letters 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'. This value is not␣
 """
 
 caracter=input("Ingrese letra ")
-if caracter in string.ascii_letters:
+if caracter in ascii_letters:
     caracter.lower()
-    palabras=texto.lower().split()
-    for n in palabras: 
+    for n in texto.lower().split(): 
         if n.startswith(caracter):
             print(n) 
+else:
+    print("El caracter no es una letra")
