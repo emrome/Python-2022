@@ -1,4 +1,3 @@
-from collections import Counter
 from string import ascii_letters
 
 def sacar_especiales(aux):  #se puede hacer solo en el join??
