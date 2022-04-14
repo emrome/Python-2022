@@ -11,6 +11,7 @@ SI es par:
 SINO:
     Mostrar mensaje: "NO es par"
 ```
+
 ## ```Desafio 2``` [Resolución](#Desafio_2)
 * Queremos ingresar un número desde el teclado e imprimir si es múltiplo de 2,3 o 5.
 * **Pista**: Python tiene otra forma de la sentencia condicional: if-elif-else
@@ -90,14 +91,11 @@ encripto("Rock2021") --> "Spdl3132"
 
 ## ```Desafio 16 ```[Resolución](#Desafio_16)
 **Dado el conjunto de datos con series y películas de Netflix, queremos:**
-* 1- guardar en otro archivo las peliculas agregadas en el año 2021.
-* 2- los cinco (5) países con más producciones en Netflix.
+* 1. guardar en otro archivo las peliculas agregadas en el año 2021.
+* 2. los cinco (5) países con más producciones en Netflix.
 
 ## ```Desafio 17 ```[Resolución](#Desafio_17)
-**Implementar un programa que muestre un menú a través del cual se puedan visualizar los**
-**resultados del desafío 16.**
-* – Pueden usar la librería console-menu analizada en clase.
-* - Pueden agregar más opciones con los ejemplos mostrados en la clase
+
 
 
 
@@ -109,6 +107,7 @@ if num % 2 == 0:
 else:
     print("Es IMPAR")
 ```
+
 # Desafio_2
 ```Py
 num=int(input("Ingrese un numero: "))
@@ -121,6 +120,7 @@ elif num % 5 == 0:
 else:
     print("No es multiplo de 2, 3 o 5")
 ```
+
 # Desafio_3
 ```Py
 letra=input("Ingrese una letra: ")
@@ -131,6 +131,7 @@ elif ((letra >="A") and (letra<="z")):
 else:
     print("No es una letra")
 ```
+
 # Desafio_4
 ```Py
 caracter=input("Ingrese un caracter: ")
@@ -139,6 +140,7 @@ if caracter=="\"":
 else:
     print("No es comilla")
 ```
+
 # Desafio_5
 ```Py
 cadena1=input("Ingrese la primera cadena: ")
@@ -281,6 +283,7 @@ usuarios = [
 ]
 print(ordeno_usuarios(usuarios))
 ```
+
 # Desafio_15
 ```Py
 def codigos_ascci(cadena):
@@ -307,6 +310,37 @@ print(cifrado_Cesar)
 ```
 
 # Desafio_16
+```Py
+import csv
+import os
+from collections import Counter
 
 
-# Desafio_17
+ruta_completa =os.getcwd()
+ruta_archivo_netflix =os.path.join(ruta_completa, "netflix_titles.csv")
+ruta_peliculas_2021=os.path.join(ruta_completa, "peliculas_2021.csv")
+
+archivo_netflix=open(ruta_archivo_netflix, encoding='utf-8')
+archivo_peliculas=open(ruta_peliculas_2021,'w',encoding='utf-8')
+
+reader=csv.reader(archivo_netflix, delimiter=',')
+writer=csv.writer(archivo_peliculas)
+writer.writerow(next(reader))
+paises={}
+
+for linea in reader:
+    if linea[7]=="2021" and linea[1]=="Movie":
+        writer.writerow(linea)
+    if linea[5] in paises.keys():
+        paises[linea[5]]+=1
+    else:
+        paises[linea[5]]=1
+del paises['']
+top_5=dict(Counter(paises).most_common(5))
+print('Los 5 paises con más titulos: ')
+print(top_5)
+
+archivo_netflix.close()
+archivo_peliculas.close()
+
+```
